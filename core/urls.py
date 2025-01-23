@@ -21,8 +21,9 @@ from django.conf import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", include("app.settings.urls"))
+    path("", include("app.settings.urls")),
+    path("", include("app.blog.urls"))
 ]
 
-urlpatterns += static(settings.MEDIA_URL, dociument_root= settings.MEDIA_ROOT)
-urlpatterns += static(settings.STATIC_URL, dociument_root= settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, dociument_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, dociument_root=settings.STATIC_ROOT)

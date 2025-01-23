@@ -16,3 +16,4 @@ django-admin startapp имя приложение - создает новое п
 Комбинация клавиша wind + r и также на нем открываем терминал cmd
 
 
+pip install django-jazzmin==2.6.0 django==4.2.7

@@ -93,84 +93,41 @@
 		</div>
         <!--/Container -->
 	</section>
-	<!--/We Are Newave -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <!-- We are good at -->
     <section id="we-are-good-at">
-		
         <!-- Container -->
 		<div class="container small-width">
-            
             <!-- Section Title -->
             <div class="section-title">
-                <h1>We are good at</h1>
+                <h1>{{ good_id.title }}</h1>
                 <span class="border"></span>
-                <p>We're an agency born out of a passion to make great products. We help companies and startups from all over the world materialize their ideas into great projects</p>
-            </div>				
-			<!--/Section Title -->
-            		
-                    
-                    
-                    
-                    
+                <p>{{ good_id.description }}</p>
+            </div>
                     <div class="one_half">
-                    
                     <!-- Progress Bar -->
 					<div class="skills">
 						<ul class="bar">
-                        
+                            {% for good in good_all %}
                             <li>
-                                <div class="bar-wrap"><span data-width="80"><strong>Brand Identity 80%</strong></span></div>
-                            </li> 
-                            <li>                                    
-                                <div class="bar-wrap"><span data-width="100"><strong>Mobile & Web Design 100%</strong></span></div>
+                                <div class="bar-wrap"><span data-width="80"><strong>{{ good.static }}</strong></span></div>
                             </li>
-                            <li>
-                                <div class="bar-wrap"><span data-width="70"><strong>User Experience 70%</strong></span></div>
-                            </li>
-                             
+                            {% endfor %}
 						</ul>
-					</div>	
+					</div>
 					<!--/Progress Bar -->
-                    
                     </div>
-                    
-                    
-                    
                     <div class="one_half last">
-                    
                     <!-- Progress Bar -->
 					<div class="skills">
 						<ul class="bar">
-                             
+                             {% for good in good_all %}
                             <li>
-                                <div class="bar-wrap"><span data-width="70"><strong>iOS Development 70%</strong></span></div>
-                            </li> 
-                            <li>
-                                <div class="bar-wrap"><span data-width="90"><strong>Photography 90%</strong></span></div>
+                                <div class="bar-wrap"><span data-width="70"><strong>{{ good.static2 }}</strong></span></div>
                             </li>
-                            <li>
-                                <div class="bar-wrap"><span data-width="80"><strong>Video Production 80%</strong></span></div>
-                            </li>
-                             
+                            {% endfor %}
 						</ul>
-					</div>	
-					<!--/Progress Bar -->
-                    
+					</div>
                     </div>
-                    
-			
 		</div>
         <!--/Container -->
 	</section>
@@ -184,45 +141,21 @@
                 <p>We're a small, friendly and talented team. We craft beautiful digital solutions for awesome clients across all the platforms.</p>
             </div>
 			<ul class="our-team">
-            	<li class="team-person element_from_left">                
-                	<img src="images/team1.png" alt="" />                    
-                    <div class="team-profile">                    
-                    	<h5>Michael Broad</h5>
-                    	<p>CEO Founder</p>
-                        <p class="about-team">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus.</p>                        
+                {% for team in team_all %}
+            	<li class="team-person element_from_left">
+                	<img src="{{ team.image.url }}" style="width: 100px; height: 100px;" alt="" />
+                    <div class="team-profile">
+                    	<h5>{{ team.name }}</h5>
+                    	<p>{{ team.direction }}</p>
+                        <p class="about-team">{{ team.description }}</p>
                         <ul class="socials-icons">
-                        	<li><a href="#"><img src="images/facebook.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/twitter.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/google.png" alt="" /></a></li>
-                        </ul>                        
+                        	<li><a href="{{ team.fb.url }}"><img src="{% static 'images/facebook.png' %}" alt="" /></a></li>
+                            <li><a href="{{ team.tw.url }}"><img src="{% static 'images/twitter.png' %}" alt="" /></a></li>
+                            <li><a href="{{ team.gl.url }}"><img src="{% static 'images/google.png' %}" alt="" /></a></li>
+                        </ul>
                 	</div>
                 </li>
-                <li class="team-person">                
-                	<img src="images/team2.png" alt="" />                    
-                    <div class="team-profile">                    
-                    	<h5>Amanda White</h5>
-                    	<p>Web Designer</p>
-                        <p class="about-team">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus.</p>                        
-                        <ul class="socials-icons">
-                        	<li><a href="#"><img src="images/facebook.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/twitter.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/google.png" alt="" /></a></li>
-                        </ul>                        
-                	</div>                    
-                </li>
-                <li class="team-person element_from_right">                
-                	<img src="images/team3.png" alt="" />                    
-                    <div class="team-profile">                    
-                    	<h5>Martin Lawrence</h5>
-                    	<p>Developer</p>
-                        <p class="about-team">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin consequat sollicitudin cursus.</p>                        
-                        <ul class="socials-icons">
-                        	<li><a href="#"><img src="images/facebook.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/twitter.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/google.png" alt="" /></a></li>
-                        </ul>
-                	</div>                
-                </li>
+                {% endfor %}
             </ul>
 		</div>
         <!--/Container -->
@@ -247,18 +180,6 @@
         <!--/Container -->
     
     </section>
-    <!-- /Newsletter -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	
 	<!-- Twitter Parallax -->
 	<div id="twitter-parallax" class="parallax" style="background-image: url('images/separator1.jpg');" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
 	
@@ -283,20 +204,6 @@
     </div>    
         
 	</div>
-    <!--/Twitter Parallax -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 	<!-- Services-->
 	<section id="services" class="content">
     	
@@ -475,66 +382,29 @@
                 <h1>We love technology</h1>
                 <span class="border"></span>
                 <p>We tackle business problems with intelligence. We use cutting-edge tech and cutting-edge thinking to bring brands to life online and direct consumer behaviour.</p>
-            </div>				
-			<!--/Section Title -->
-            
-            
+            </div>
             <ul class="technology">
-            
+                {% for technology in technology_all %}
             	<li class="element_fade_in">
+                    {% if technology.icon == "Consultation" %}
                 	<i class="fa fa-comments"></i>
-                    <h5>Consultation</h5>
-                    <p>We tackle business problems with intelligence. We use cutting-edge tech and cutting-edge thinking to bring.</p>                
+                    {% endif %}
+                    {% if technology.icon == "Design" %}
+                    <i class="fa fa-magic"></i>
+                    {% endif %}
+                    {% if technology.icon == "User Experience" %}
+                    <i class="fa fa-laptop"></i>
+                    {% endif %}
+                    {% if technology.icon == "Development" %}
+                    <i class="fa fa-cog"></i>
+                    {% endif %}
+                    <h5>{{ technology.title }}</h5>
+                    <p>{{ technology.description }}</p>
                 </li>
-                
-                <li class="element_fade_in">
-                	<i class="fa fa-magic"></i>
-                    <h5>Design</h5>
-                    <p>We tackle business problems with intelligence. We use cutting-edge tech and cutting-edge thinking to bring.</p>                
-                </li>
-                
-                <li class="element_fade_in">
-                	<i class="fa fa-laptop"></i>
-                    <h5>User Experience</h5>
-                    <p>We tackle business problems with intelligence. We use cutting-edge tech and cutting-edge thinking to bring.</p>                
-                </li>
-                
-                <li class="element_fade_in">
-                	<i class="fa fa-cog"></i>
-                    <h5>Development</h5>
-                    <p>We tackle business problems with intelligence. We use cutting-edge tech and cutting-edge thinking to bring.</p>                
-                </li>
-            
+                {% endfor %}
             </ul>
-            
-    
     	</div>
-        <!--/Container -->
-        
-	</section>	
-	<!--/We love technology-->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	<!-- Quote Parallax -->
+	</section>
 	<div id="quote-parallax" class="parallax" style="background-image: url('images/separator2.jpg');" data-stellar-background-ratio="0.6" data-stellar-vertical-offset="20">
 		
         <div class="parallax-overlay parallax-background-color">
@@ -545,50 +415,19 @@
     	</div>
                     
 	</div>
-	<!--/Quote Parallax -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <!-- Portfolio -->
 	<section id="portfolio" class="content">
-    		
         <!-- Container -->
 		<div class="container portfolio-title">
-			
             <!-- Section Title -->
             <div class="section-title">
                 <h1>Portfolio</h1>
                 <span class="border"></span>
                 <p>We help build products from idea to launch. We're experts at web & mobile design, branding, iOS development & frontend. Here's some of our work.</p>
-            </div>				
-			<!--/Section Title -->
-            
-            
-        </div> 
-        <!-- Container -->  
-          
-          
-          
-          
-          
-        <div class="portfolio-top"></div>          
-        
-              
+            </div>
+        </div>
+        <div class="portfolio-top"></div>
         <!-- Portfolio Plus Filters -->
         <div class="portfolio">
-        
-            
-     
-       
        <!-- Portfolio Filters -->   
        <div  id="filters" class="sixteen columns">
     
@@ -602,23 +441,13 @@
           </ul>
         </div>
         <!--/Portfolio Filters -->
-    
-       
-             
-        <!-- Portfolio Wrap -->  
+        <!-- Portfolio Wrap -->
         <div id="portfolio-wrap">
-        
-        
-        
-        
-        
-            <!-- Portfolio Item With PrettyPhoto  -->                 
             <div class="portfolio-item one-four   branding web">
-            
             <div class="portfolio-image">
                 <img src="images/portfolio/portfolio2.jpg" alt="Portfolio 1"/> 
             </div>
-            
+
             <a title="Starbucks Coffee" rel="prettyPhoto[galname]" href="images/portfolio/portfolio2.jpg">
             <div class="project-overlay">              
                 <div class="project-info">
@@ -628,16 +457,7 @@
                 </div>
             </div>
             </a>
-              
             </div>
-            <!--/Portfolio Item With PrettyPhoto  -->       
-        
-                       
-            
-            
-            
-            
-            <!-- Portfolio Item Video Expander  -->                   
             <div class="portfolio-item one-four  design  photography   web">
             
             <div class="portfolio-image">
@@ -679,21 +499,11 @@
                     <p class="project-categories">Normal Expander</p>	
                 </div>
             </div>
-              
             </div>
-            <!--/Portfolio Item Normal Expander -->
-            
-            
-            
-            
-            
-            <!-- Portfolio Item FullScreen Expander -->                   
             <div class="portfolio-item one-four  photography  branding web">
-            
             <div class="portfolio-image">
                 <img src="images/portfolio/portfolio4.jpg" alt="Portfolio 1"/>
             </div>
-            
             <div class="project-overlay">
                 <div class="open-project-link">
                     <a class="open-project" href="project-fullscreen-expander-1.html" title="Open Project"></a>             
@@ -704,15 +514,7 @@
                     <p class="project-categories">Fullscreen Expander</p>	
                 </div>
             </div>
-              
             </div>
-            <!-- Portfolio Item FullScreen Expander -->
-            
-            
-            
-            
-            
-            <!-- Portfolio Item FullScreen Expander -->                   
             <div class="portfolio-item one-four  design  photography  branding web">
             
             <div class="portfolio-image">
